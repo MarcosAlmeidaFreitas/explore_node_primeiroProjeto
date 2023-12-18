@@ -1,0 +1,15 @@
+{
+  "name": "explore_node_primeiroProjeto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/server.js"
+  },
+  "keywords": [],
+  "author": "Marcos Antonio Almeida Freitas",
+  "license": "ISC",
+  "description": "Primeira api do projeto explore ensinando a como desenvolver o back-end em node.js",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
