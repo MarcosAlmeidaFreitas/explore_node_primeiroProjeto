@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "_comentario" : " Com 'pnpm start' ele vai rodar como node",
+    "_comentario": " Com 'pnpm run dev' ele vai rodar como nodemon",
     "start": "node ./src/server.js",
-    "_comentario" : " Com 'pnpm run dev' ele vai rodar como nodemon",
     "dev": "nodemon ./src/server.js"
   },
   "keywords": [],
@@ -13,7 +12,8 @@
   "license": "ISC",
   "description": "Primeira api do projeto explore ensinando a como desenvolver o back-end em node.js",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

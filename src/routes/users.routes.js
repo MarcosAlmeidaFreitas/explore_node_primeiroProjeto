@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const usersRouter = Router();
 
-
+//Função para regulamentar a requisição e a reposta, como um usuário não autorizado
 function myMiddleware(request, response, next){
   console.log("Voce passou pelo middleware");
   
