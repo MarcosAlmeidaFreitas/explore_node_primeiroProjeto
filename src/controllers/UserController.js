@@ -8,6 +8,11 @@ class UserController{
   * Função update - Utiliza o método PUT para ATUALIZAR um registro.
   * Função delete - Utiliza o método DELETE para REMOVER um registro.
 */
+
+  create(request, response){
+    const { name, age, email } = request.body;
+    response.status(201).json(`Você acaba de criar o usuário: ${name}. Que possui ${age} anos e seu é email ${email}`);
+  }
 }
 
 module.exports = UserController;
