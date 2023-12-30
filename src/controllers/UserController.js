@@ -1,3 +1,4 @@
+const AppError = require("../utils/AppError");
 class UserController{
 /*
   A classe geralmente possui 5 Funções que são:
@@ -11,6 +12,11 @@ class UserController{
 
   create(request, response){
     const { name, age, email } = request.body;
+    
+    if(!name){
+      throw new AppError("Nome é obrigatório");
+    }
+
     response.status(201).json(`Você acaba de criar o usuário: ${name}. Que possui ${age} anos e seu é email ${email}`);
   }
 }

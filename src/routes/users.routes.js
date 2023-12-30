@@ -4,12 +4,13 @@ const usersRouter = Router();
 
 //Função para regulamentar a requisição e a reposta, como um usuário não autorizado
 function myMiddleware(request, response, next){
-  console.log("Voce passou pelo middleware");
+  
   
   if(!request.body.isAdm){
     return response.status(401).json({message: "user unauthorized"});
   }
 
+  console.log("Voce passou pelo middleware");
   next();
 }
 
@@ -21,7 +22,7 @@ const UserController = require('../controllers/UserController');
 
 const userController = new UserController();
 
-//request.parms é obrigatório que os parametros estejam certos para que consiga acessar a rota. 
+//request.parms é obrigatório que os parâmetros estejam certos para que consiga acessar a rota. 
 usersRouter.get('/message/:id/:user', (request, response)=>{
   const {id, user} = request.params;
   response.send(`O id do usuário é: ${id} \n 
