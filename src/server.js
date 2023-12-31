@@ -1,7 +1,7 @@
 //Utilizando a biblioteca async errors
 require("express-async-errors");
 
-const database = require("./database/sqlite/index.js");
+const migrationsRun = require("./database/sqlite/migrations");
 
 const AppError = require("./utils/AppError.js");
 
@@ -9,9 +9,10 @@ const express = require('express');
 
 const routes = require("./routes/index.js");
 
+migrationsRun();
+
 const app = express();
 
-database();
 
 // Importante se utiliza o json no projeto para requisição ou para resposta deve se utiliza-lo da seguinte forma
 app.use(express.json());
