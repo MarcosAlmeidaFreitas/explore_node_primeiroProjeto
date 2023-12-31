@@ -12,8 +12,10 @@
   "license": "ISC",
   "description": "Primeira api do projeto explore ensinando a como desenvolver o back-end em node.js",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
     "express-async-errors": "^3.1.1",
+    "knex": "^3.1.0",
     "sqlite": "^5.1.1",
     "sqlite3": "5.1.7-rc.0"
   },

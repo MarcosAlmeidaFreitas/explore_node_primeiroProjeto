@@ -36,7 +36,8 @@ usersRouter.get('/',(request, response)=>{
   response.send(`Página: ${page}, Mostrar ${limit} usuários`);
 });
 
-usersRouter.post('/createUser', myMiddleware, userController.create);
+usersRouter.post('/', myMiddleware, userController.create);
+usersRouter.put('/:id', myMiddleware, userController.update);
 
 
 module.exports = usersRouter;
