@@ -1,2 +1,4 @@
+#Ignorando a pasta node_modules
 node_modules
+#Ignorando o banco de dados
 database.db
