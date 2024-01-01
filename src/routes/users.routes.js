@@ -18,9 +18,9 @@ function myMiddleware(request, response, next){
 
 
 
-const UserController = require('../controllers/UserController');
+const UsersController = require('../controllers/UsersController');
 
-const userController = new UserController();
+const usersController = new UsersController();
 
 //request.parms é obrigatório que os parâmetros estejam certos para que consiga acessar a rota. 
 usersRouter.get('/message/:id/:user', (request, response)=>{
@@ -36,8 +36,8 @@ usersRouter.get('/',(request, response)=>{
   response.send(`Página: ${page}, Mostrar ${limit} usuários`);
 });
 
-usersRouter.post('/', myMiddleware, userController.create);
-usersRouter.put('/:id', myMiddleware, userController.update);
+usersRouter.post('/', myMiddleware, usersController.create);
+usersRouter.put('/:id', myMiddleware, usersController.update);
 
 
 module.exports = usersRouter;

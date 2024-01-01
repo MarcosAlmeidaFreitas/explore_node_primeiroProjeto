@@ -2,7 +2,7 @@ const { hash, compare } = require('bcryptjs');
 const AppError = require("../utils/AppError");
 const sqliteConnection = require("../database/sqlite");
 
-class UserController{
+class UsersController{
 /*
   A classe geralmente possui 5 Funções que são:
   
@@ -86,4 +86,4 @@ class UserController{
   }
 }
 
-module.exports = UserController;
+module.exports = UsersController;

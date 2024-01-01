@@ -5,7 +5,8 @@
   "scripts": {
     "_comentario": " Com 'pnpm run dev' ele vai rodar como nodemon",
     "start": "node ./src/server.js",
-    "dev": "nodemon ./src/server.js"
+    "dev": "nodemon ./src/server.js",
+    "migrate": "knex migrate:latest"
   },
   "keywords": [],
   "author": "Marcos Antonio Almeida Freitas",
