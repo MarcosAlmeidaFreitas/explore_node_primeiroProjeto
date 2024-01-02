@@ -25,6 +25,7 @@ const notesController = new NotesController();
 
 notesRouter.post('/:user_id', myMiddleware, notesController.create);
 notesRouter.get('/:id', notesController.show);
+notesRouter.delete('/:id', notesController.delete);
 //notesRouter.put('/:id', myMiddleware, notesController.update);
 
 
