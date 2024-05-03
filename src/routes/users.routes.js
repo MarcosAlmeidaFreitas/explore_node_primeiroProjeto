@@ -1,6 +1,9 @@
 const { Router } = require("express");
+const multer = require('multer');
+const uploadConfig = require("../configs/upload");
 
 const usersRouter = Router();
+const upload = multer(uploadConfig.MULTER);
 
 //Exemplo de Middleware
 
@@ -17,9 +20,11 @@ const usersRouter = Router();
 // }
 
 const UsersController = require('../controllers/UsersController');
+const UserAvatarController = require('../controllers/UserAvatarController');
 const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
 const usersController = new UsersController();
+const userAvatarController = new UserAvatarController();
 
 //request.parms é obrigatório que os parâmetros estejam certos para que consiga acessar a rota. 
 usersRouter.get('/message/:id/:user', (request, response)=>{
@@ -37,6 +42,6 @@ usersRouter.get('/',(request, response)=>{
 
 usersRouter.post('/',  usersController.create);
 usersRouter.put('/', ensureAuthenticated, usersController.update);
-
+usersRouter.patch('/avatar', ensureAuthenticated, upload.single("avatar"), userAvatarController.update);
 
 module.exports = usersRouter;
