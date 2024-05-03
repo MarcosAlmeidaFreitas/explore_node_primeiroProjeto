@@ -2,23 +2,22 @@ const { Router } = require("express");
 
 const usersRouter = Router();
 
-//Função para regulamentar a requisição e a reposta, como um usuário não autorizado
-function myMiddleware(request, response, next){
+//Exemplo de Middleware
+
+//Função para regulamentar a requisição e a reposta, como um usuário não autorizado, 
+// function myMiddleware(request, response, next){
   
   
-  if(!request.body.isAdm){
-    return response.status(401).json({message: "user unauthorized"});
-  }
+//   if(!request.body.isAdm){
+//     return response.status(401).json({message: "user unauthorized"});
+//   }
 
-  console.log("Voce passou pelo middleware");
-  next();
-}
-
-
-
-
+//   console.log("Voce passou pelo middleware");
+//   next();
+// }
 
 const UsersController = require('../controllers/UsersController');
+const ensureAuthenticated = require('../middlewares/ensureAuthenticated');
 
 const usersController = new UsersController();
 
@@ -36,8 +35,8 @@ usersRouter.get('/',(request, response)=>{
   response.send(`Página: ${page}, Mostrar ${limit} usuários`);
 });
 
-usersRouter.post('/', myMiddleware, usersController.create);
-usersRouter.put('/:id', myMiddleware, usersController.update);
+usersRouter.post('/',  usersController.create);
+usersRouter.put('/', ensureAuthenticated, usersController.update);
 
 
 module.exports = usersRouter;
